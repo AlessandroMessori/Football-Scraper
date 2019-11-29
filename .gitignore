@@ -4,3 +4,4 @@ data/
 __init__.py
 *.pyc
 __pycache__/
+scraper\
