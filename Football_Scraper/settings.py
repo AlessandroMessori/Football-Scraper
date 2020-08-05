@@ -11,8 +11,8 @@
 
 BOT_NAME = 'Football_Scraper'
 
-SPIDER_MODULES = ['Football_Scraper.spiders']
-NEWSPIDER_MODULE = 'Football_Scraper.spiders'
+SPIDER_MODULES = ['Football_Scraper.spiders.Italian']
+NEWSPIDER_MODULE = 'Football_Scraper.spiders.Italian'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
