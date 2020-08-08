@@ -8,6 +8,11 @@ class Min90Spider(scrapy.Spider):
         'https://www.90min.in/top-stories?page=1',
         'https://www.90min.in/top-stories?page=2'
     ]
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'Football_Scraper.pipelines.CsvPipeline': 300,
+        }
+    }
 
     def parse(self, response):
         for title in response.css('a.feedpage-article__title::text').getall():

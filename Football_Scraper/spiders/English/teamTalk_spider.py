@@ -7,6 +7,11 @@ class TeamTalkSpider(scrapy.Spider):
     start_urls = [
         'https://www.teamtalk.com/',
     ]
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'Football_Scraper.pipelines.CsvPipeline': 300,
+        }
+    }
 
     def parse(self, response):
         headersQuery = "*[self::h1 or self::h2 or self::h3]"
