@@ -10,7 +10,7 @@ class Min90Spider(scrapy.Spider):
     ]
     custom_settings = {
         'ITEM_PIPELINES': {
-            'Football_Scraper.pipelines.CsvPipeline': 300,
+            'Football_Scraper.pipelines.EnglishCsvPipeline': 300,
         }
     }
 

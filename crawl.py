@@ -1,6 +1,5 @@
 import sys
 import os
-import shutil
 from scrapy.crawler import CrawlerProcess
 
 from Football_Scraper.spiders.English import *
@@ -15,8 +14,10 @@ if __name__ == "__main__":
 
     if arg in spiders:
 
-        shutil.rmtree('./data', ignore_errors=True)
-        os.mkdir("./data")
+        write_file_path = '/home/alessandro/Scrivania/data/' + arg + '.csv'
+
+        if os.path.exists(write_file_path):
+            os.remove(write_file_path)
 
         selected_spiders = spiders[arg]
         process = CrawlerProcess()
