@@ -11,10 +11,11 @@ spiders = dict(english=[GoalSpider, SoccerNewsSpider, Min90Spider, SportLensSpid
 if __name__ == "__main__":
 
     arg = sys.argv[1]
+    path = sys.argv[2]
 
     if arg in spiders:
 
-        write_file_path = '/home/alessandro/Scrivania/data/' + arg + '.csv'
+        write_file_path = path + arg + '.csv'
 
         if os.path.exists(write_file_path):
             os.remove(write_file_path)
