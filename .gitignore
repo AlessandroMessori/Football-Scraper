@@ -1,7 +1,6 @@
 data/
 .vscode/
 *.csv
-__init__.py
 *.pyc
 __pycache__/
 scraper\
