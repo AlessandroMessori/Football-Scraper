@@ -2,8 +2,8 @@ import sys
 import os
 from scrapy.crawler import CrawlerProcess
 
-from Football_Scraper.spiders.English import *
 from Football_Scraper.spiders.Italian import *
+from Football_Scraper.spiders.English import *
 
 spiders = dict(english=[GoalSpider, SoccerNewsSpider, Min90Spider, SportLensSpider, TeamTalkSpider, OneFootballSpider],
                italian=[CalcioMercatoSpider, CalcioWebSpider, GazzettaSpider, SportalSpider])

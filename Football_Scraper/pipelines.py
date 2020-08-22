@@ -9,7 +9,7 @@ from scrapy.exporters import CsvItemExporter
 
 class ItalianCsvPipeline(object):
     def __init__(self):
-        self.file = open("/usr/local/airflow/Football-Scraper/data/italian.csv", 'ab')
+        self.file = open("/usr/local/airflow/data/italian.csv", 'ab')
         self.exporter = CsvItemExporter(self.file)
         self.exporter.start_exporting()
 
@@ -24,7 +24,7 @@ class ItalianCsvPipeline(object):
 
 class EnglishCsvPipeline(object):
     def __init__(self):
-        self.file = open("/usr/local/airflow/Football-Scraper/data/english.csv", 'ab')
+        self.file = open("/usr/local/airflow/data/english.csv", 'ab')
         self.exporter = CsvItemExporter(self.file)
         self.exporter.start_exporting()
 
