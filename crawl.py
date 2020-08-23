@@ -1,5 +1,6 @@
-import sys
+import json
 import os
+import shutil
 from scrapy.crawler import CrawlerProcess
 
 from Football_Scraper.spiders.Italian import *
@@ -9,26 +10,26 @@ spiders = dict(english=[GoalSpider, SoccerNewsSpider, Min90Spider, SportLensSpid
                italian=[CalcioMercatoSpider, CalcioWebSpider, GazzettaSpider, SportalSpider])
 
 if __name__ == "__main__":
+    with open('/usr/local/airflow/config.json', 'r') as f:
+        config = json.load(f)
+        languages = config["languages"]
+        path = '/usr/local/airflow/data'
 
-    arg = sys.argv[1]
-    path = sys.argv[2]
+        if os.path.exists(path):
+            shutil.rmtree(path)
 
-    if arg in spiders:
+        os.mkdir(path)
 
-        write_file_path = path + arg + '.csv'
+        for lan in languages:
 
-        if os.path.exists(write_file_path):
-            os.remove(write_file_path)
+            write_file_path = path + lan["name"] + '.csv'
 
-        selected_spiders = spiders[arg]
-        process = CrawlerProcess()
+            selected_spiders = spiders[lan["name"]]
+            process = CrawlerProcess()
 
-        print("crawling " + arg + " websites...")
+            print("crawling " + lan["name"] + " websites...")
 
-        for spider in selected_spiders:
-            process.crawl(spider)
+            for spider in selected_spiders:
+                process.crawl(spider)
 
         process.start()
-
-    else:
-        print("invalid language argument")
