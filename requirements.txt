@@ -8,7 +8,7 @@ arrow==0.15.8
 attrs==19.3.0
 Automat==0.8.0
 autopep8==1.4.4
-Babel==2.8.0
+Babel==2.9.1
 bcrypt==3.1.7
 beautifulsoup4==4.8.1
 boto3==1.9.66
